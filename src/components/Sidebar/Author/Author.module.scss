@@ -10,17 +10,20 @@
   }
 
   &__title {
-    font-size: $typographic-base-font-size * 1.125;
-    font-weight: 600;
+    font-size: $typographic-base-font-size * 2.125;
+    font-weight: 900;
     @include line-height(1.125);
     @include margin(.5, 0, .5, 0);
 
     &-link {
-      color: $color-base;
+      color: $menu-button-color;
 
       &:hover,
       &:focus {
-        color: $color-base
+        font-size: $typographic-base-font-size * 2.140;
+        color: $menu-button-color;
+        transition: ease-in-out;
+        transition-duration: 2s;
       }
 
     }

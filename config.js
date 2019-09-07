@@ -1,17 +1,16 @@
 'use strict';
 
 module.exports = {
-  url: 'https://lumen.netlify.com',
+  url: 'https://www.samuelomanchi.com',
   pathPrefix: '/',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
-  copyright: '© All rights reserved.',
+  title: 'Blog by Samuel Omanchi',
+  subtitle: 'React and React Native Developer',
+  copyright: '2019 © All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
   googleAnalyticsId: 'UA-73379983-2',
   useKatex: false,
-  menu: [
-    {
+  menu: [{
       label: 'Articles',
       path: '/'
     },
@@ -20,24 +19,28 @@ module.exports = {
       path: '/pages/about'
     },
     {
+      label: 'Projects',
+      path: '/pages/projects'
+    },
+    {
       label: 'Contact me',
       path: '/pages/contacts'
     }
   ],
   author: {
-    name: 'John Doe',
+    name: 'Samuel Omanchi',
     photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    bio: 'React and React Native Developer',
     contacts: {
-      email: '',
-      facebook: '#',
-      telegram: '#',
-      twitter: '#',
+      email: 'omanchis@gmail.com',
+      facebook: '',
+      telegram: '',
+      twitter: 'cortehzz',
       github: '#',
       rss: '',
       vkontakte: '',
       linkedin: '#',
-      instagram: '#',
+      instagram: '',
       line: '',
       gitlab: '',
       weibo: ''
