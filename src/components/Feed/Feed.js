@@ -4,6 +4,7 @@ import moment from "moment";
 import { Link } from "gatsby";
 import type { Edges } from "../../types";
 import styles from "./Feed.module.scss";
+import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 
 type Props = {
   edges: Edges
@@ -45,7 +46,7 @@ const Feed = ({ edges }: Props) => (
           className={styles["feed__item-readmore"]}
           to={edge.node.fields.slug}
         >
-          Read
+          Read <ArrowRightAltIcon className={styles["feed__item-icon"]} />
         </Link>
       </div>
     ))}
