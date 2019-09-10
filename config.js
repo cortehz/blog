@@ -16,7 +16,7 @@ module.exports = {
     },
     {
       label: 'About me',
-      path: '/pages/about'
+      path: '/about'
     },
     {
       label: 'Projects',
@@ -29,7 +29,7 @@ module.exports = {
   ],
   author: {
     name: 'Samuel Omanchi',
-    photo: '/photo.jpg',
+    photo: '/photo-real.jpg',
     bio: 'React and React Native Developer',
     contacts: {
       email: 'omanchis@gmail.com',

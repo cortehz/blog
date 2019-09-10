@@ -1,8 +1,14 @@
 @import '../../assets/scss/variables';
 @import '../../assets/scss/mixins';
 
+html,
+body {
+    height: 100%;
+}
+
 .layout {
     lost-center: $layout-width;
     background-color: $background-color;
     color: $color-white;
+    height: 100%;
 }
