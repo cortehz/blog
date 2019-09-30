@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: space-around;
     color: $menu-button-color;
+    z-index: 20000;
 
     &-item {
       padding: 0;
