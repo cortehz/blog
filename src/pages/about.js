@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import Sidebar from "../components/Sidebar";
 import Page from "../components/Page";
 import Image from "./photo-full.jpg";
+import "./about.css";
 
 const About = () => {
   const pageTitle = "About me";
@@ -15,51 +16,54 @@ const About = () => {
       <Sidebar />
       <Page title={pageTitle}>
         <div
+          className="about-div"
           style={{
-            display: "flex"
+            display: "flex",
+            flexDirection: "column"
           }}
         >
-          <div>
-            <p style={{ padding: 5 }}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem
-              sequi impedit facere aut debitis tenetur voluptatum possimus
-              mollitia molestias. Veniam doloribus et ipsum amet enim quis
-              veritatis eligendi dolorum vel? Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Eius cum dolores dolor error commodi
-              amet ipsum quod quae, corrupti quam dolorem nihil blanditiis
-              similique quia officiis minima omnis inventore itaque.
-            </p>
+          <p
+            style={{
+              padding: 5,
+              textAlign: "left",
+              marginRight: 10,
+              marginTop: 0
+            }}
+          >
+            Hi my name is Samuel, I'm a front end software developer making use
+            of some of modern tools like HTML, CSS3(flexbox for complex layout),
+            and JavaScript. Enthusiastic about building modern user interfaces
+            with React and React Native for cross platform mobile application
+            development. Good working knowledge of NodeJs and the MERN stack.
+            Looking to write a bit more. Open to offers too - full time or
+            contract. Say Hi!
+          </p>
 
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <a
-                style={{
-                  padding: 10,
-                  background: "#d2dae2",
-                  margin: 10,
-                  color: "#1e272e"
-                }}
-              >
-                Download Resume
-              </a>
-              <a
-                style={{
-                  padding: 10,
-                  background: "#d2dae2",
-                  margin: 10,
-                  color: "#1e272e"
-                }}
-              >
-                Hire Me
-              </a>
-            </div>
+          <div
+            className="hire-me"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <a
+              style={{
+                padding: 10,
+                background: "#d2dae2",
+                margin: 10,
+                color: "#1e272e"
+              }}
+            >
+              Download Resume
+            </a>
+            <a
+              style={{
+                padding: 10,
+                background: "#d2dae2",
+                margin: 10,
+                color: "#1e272e"
+              }}
+            >
+              Hire Me
+            </a>
           </div>
-          <img
-            src={Image}
-            alt="Samuel Omanchi"
-            height="350"
-            width="350"
-            style={{ borderRadius: 5 }}
-          />
         </div>
       </Page>
     </Layout>

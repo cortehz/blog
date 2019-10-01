@@ -1,0 +1,18 @@
+@media screen and (max-width: 960px) {
+    .about-div {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hire-me {
+        order: 2;
+    }
+
+    .about-div img {
+        order: 1;
+    }
+
+    .about-div p {
+        order: 0;
+    }
+}
