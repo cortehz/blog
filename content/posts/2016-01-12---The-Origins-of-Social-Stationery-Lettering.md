@@ -1,51 +1,57 @@
 ---
-title: The Origins of Social Stationery Lettering
-date: "2016-12-01T22:40:32.169Z"
+title: JavaScript Promises
+date: "2017-11-02T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/the-origins-of-social-stationery-lettering"
-category: "Design"
-description: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante."
+category: "JavaScript"
+description: "Promise is a declaration that an asynchronous JavaScript operation will do something; either succeed or fail, resulting in a value whatever the case. Be it a success value or the reason for a failure. Too much talk so far. Let’s create a quick promise..."
 socialImage: "/media/image-3.jpg"
 ---
 
-**Pellentesque habitant morbi tristique** senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. _Aenean ultricies mi vitae est._ Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+This article was originally posted on my Medium profile on November, 2 2017.
 
-Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. [Donec non enim](#) in turpis pulvinar facilisis.
+So I've decided to "medium" my way through whatever it is I'm learning at any moment in my developer career. If there's was an app that kept track of all the articles I've had to read about getting started with writing as a developer, am sure it'll need some scaling - I've had to read a lot - without actually putting what I read to practice. Am sure there are a lot of other Developers like me out there. If you're wondering how to start, pick up the gauntlet like I have today and write something. Anything. Like the saying goes: If you don't shoot, you don't score. If you want something to help you get started, Sam Jarman wrote a good piece: How to Build an Online presence as a Junior Developer.
 
-![Nulla faucibus vestibulum eros in tempus. Vestibulum tempor imperdiet velit nec dapibus](/media/image-3.jpg)
+That said, I’ve decided to write about Promise in JavaScript, with the hope that it’ll help me or somebody out there to understand the underlying concept better. But for you to grasp some of the terms, you need to have a basic understanding of a few JavaScript concepts.
 
-## Header Level 2
+Promise is a declaration that an asynchronous JavaScript operation will do something; either succeed or fail, resulting in a value whatever the case. Be it a success value or the reason for a failure. Too much talk so far. Let’s create a quick promise:
 
-- Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-- Aliquam tincidunt mauris eu risus.
+       `resolve([1,2,3,4,5]);
 
-Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.
+});
+firstPromise.then(function(array){
+console.log("firstPromise resolved with data:", array);});`
 
-<figure>
-	<blockquote>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
-		<footer>
-			<cite>— Aliquam tincidunt mauris eu risus.</cite>
-		</footer>
-	</blockquote>
-</figure>
+Well, whats happening here? Let’s see. We created a new “Promise” constructor with a callback function and assigned it to the variable “firstPromise”. The function takes two(2) parameters: resolve and reject. So if it is resolved correctly “resolve” is called. We then create another callback function with the “.then” method which invokes when resolve in the promise is invoked, the value is then passed to the “array” parameter in the callback. This is what we get in the console:
 
-### Header Level 3
+![alt text][console] [console]: https://cdn-images-1.medium.com/max/800/1*SjagZnDb99WjZcqvQfIN_w.png "printed to console"
 
-- Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-- Aliquam tincidunt mauris eu risus.
+The promise above only accounts for a situation where the promise is resolved, we all know promises are not being kept these days, JavaScript is not left out. Next, lets look at how rejects are handled in Promise. A quick example:
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+`var secondPromise = new Promise (function(resolve, reject)`
+`{ reject("An Error occurred"); }); secondPromise.then(function(value)`
+`{ console.log("secondPromise resolved with data:", value); })`
+`.catch(function(value){ console.log("secondPromise was rejected with data:", value); });`
 
-```css
-#header h1 a {
-  display: block;
-  width: 300px;
-  height: 80px;
-}
-```
+Just like the first promise we created, but this time we are invoking the “reject” parameter in the “Promise”. The other new concept here is the “.catch” method which invokes the “reject” in the promise when a failure is encountered. This time, this is what we get printed out to the console:
 
-Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+![alt text][console] [console]: https://cdn-images-1.medium.com/max/800/1*gYqUXApOQR1XPCyNn7xpGg.png "printed to console"
 
-![Test SVG](/media/cpu.svg)
+These are basics of Promise in Javascript, outputting a result where an operation is successfully resolved or another result to indicate the failure of the operation and the cause of this failure. In above examples, we are only handling one possible outcome(resolve or reject).
+
+Now, another quick example, this time our outcome could either be a “reject” or “resolve”. We would do this using if, else statements.
+
+`var thirdPromise = new Promise(function(resolve, reject){ var number = Math.random(); if (number < 0.5) { resolve(number); } else { reject(number); } }); thirdPromise.then(function(result) { console.log("Succeeded:", result); }) .catch(function(error) { console.log("Error:", error); });`
+
+Lets quickly run through whats happening above. We are calling a Math.random() function. What does this do? “The Math.random() function returns a floating-point, pseudo-random number in the range [0, 1); that is, from 0 (inclusive) up to but not including 1 (exclusive), which you can then scale to your desired range.” Pretty straightforward what that does. Feeling like one math guru there with that definition, but that was curled from MDN web docs. the if statement is saying if the variable number which would be generated by the math.random() is less than 0.5, it should be resolved, the .then method is now invoked which then invokes the “number” and passes it to “result” parameter in the callback function.
+
+However, if the number is greater than 0.5, the else statement is executed which invokes the reject by virtue of the .catch method. This catches the failure and passes it to the “error” parameter, printing out the error to the console; saying the number is greater than 0.5. This what I got printed out at the first trial:
+
+![alt text][console] [console]: https://cdn-images-1.medium.com/max/800/1*b2Aye-BywJ4JTPNXxQ7ytw.png "This succeeds because the random number generated was less than 0.5"
+
+And then, on running the code the second time, I got a reject like so:
+
+![alt text][console] [console]: https://cdn-images-1.medium.com/max/800/1*hVLR1nkPgf0bFePJ7BriVA.png "This failed because the random number generated was greater than 0.5"
+
+So, these are something of the basic Promise concepts I just learned. Putting this out here just gave me a better understanding — Certainly going to be doing this more often. Also hoping it would help somebody getting started with concepts like this too. Harsh criticisms are highly welcomed down below. Some feedback will be highly appreciated. Still, endeavour to clap, it could be sarcastic as well.
